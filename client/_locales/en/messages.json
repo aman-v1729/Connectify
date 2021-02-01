@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Connectify",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Connect with people around the world!",
+    "description": "none"
+  }
+}

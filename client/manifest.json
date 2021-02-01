@@ -1,0 +1,48 @@
+{
+    "manifest_version": 2,
+    "name": "Connectify",
+    "description": "Connect with users across the world!",
+    "version": "0.1",
+    "default_locale": "en",
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "declarativeContent"
+    ],
+    "page_action": {
+        "default_icon": {
+            "19": "icon.png",
+            "38": "icon.png"
+        },
+        "default_title": "__MSG_extName__",
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "scripts": [
+            "assets/js/jquery-3.5.1.min.js",
+            "assets/js/socket.io.js",
+            "background.js"
+        ],
+        "persistent": true
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "assets/js/jquery-3.5.1.min.js",
+                "assets/js/socket.io.js",
+                "assets/js/identicon.js",
+                "assets/js/pnglib.js",
+                "assets/js/sha-256.js"
+            ]
+        }
+    ],
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    }
+}
