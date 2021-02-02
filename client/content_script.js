@@ -2,8 +2,8 @@
 
 (function () {
     // make sure the content script is only run once on the page
-    if (!window.netflixPartyLoaded) {
-        window.netflixPartyLoaded = true;
+    if (!window.connectifyLoaded) {
+        window.connectifyLoaded = true;
 
         //////////////////////////////////////////////////////////////////////////
         // Version                                                              //
@@ -66,108 +66,6 @@
         };
 
         //////////////////////////////////////////////////////////////////////////
-        // Netflix API                                                          //
-        //////////////////////////////////////////////////////////////////////////
-
-        // how many simulated UI events are currently going on
-        // don't respond to UI events unless this is 0, otherwise
-        // we will mistake simulated actions for real ones
-        var uiEventsHappening = 0;
-
-        // if(window.location.toString().indexOf('youtube.com')!=-1){
-
-        //var video_element = document.getElementsByTagName('video')[0];
-        //console.log(video_element);
-
-        // var force_find_video = function () {
-        //     for (let iframe of jQuery('iframe').get()) {
-        //         if (iframe && iframe['src']) {
-        //             console.log(iframe['src']);
-        //             document.location = iframe['src'];
-        //             break;
-        //         }
-        //     }
-        // }
-
-
-        // video duration in milliseconds
-        var lastDuration = 60 * 60 * 1000;
-        // var getDuration = function () {
-        //     if (video_element) {
-        //         lastDuration = Math.floor(video_element.duration * 1000);
-        //     }
-        //     return lastDuration;
-
-        // };
-
-
-        // var getState = function () {
-
-        //     return video_element.paused ? 'paused' : 'playing';
-
-        // };
-
-        // current playback position in milliseconds
-        // var getPlaybackPosition = function () {
-        //     return Math.floor(video_element.currentTime * 1000);
-        // };
-
-        // wake up from idle mode
-        // var wakeUp = function () {
-        //     uiEventsHappening += 1;
-        //     //video_element.play();
-        //     return delayUntil(function () {
-        //         return getState() !== 'idle';
-        //     }, 2500)().ensure(function () {
-        //         uiEventsHappening -= 1;
-        //     });
-        // };
-
-
-        // pause
-        // var pause = function () {
-        //     console.log('about to pause')
-
-        //     if (getState() === 'paused')
-        //         return Promise.resolve();
-        //     uiEventsHappening += 1;
-        //     video_element.pause();
-        //     return delayUntil(function () {
-        //         return getState() === 'paused';
-        //     }, 1000)().then(console.log('helping')).ensure(function () {
-        //         uiEventsHappening -= 1;
-        //     });
-        // };
-
-        // play
-        // var play = function () {
-        //     console.log('about to play')
-        //     if (getState() === 'playing')
-        //         return Promise.resolve();
-        //     uiEventsHappening += 1;
-        //     video_element.play();
-        //     return delayUntil(function () {
-        //         return getState() === 'playing';
-        //     }, 2500)().then(console.log('helping')).ensure(function () {
-        //         uiEventsHappening -= 1;
-        //     });
-        // };
-
-
-        // jump to a specific time in the video
-        // var seekErrorRecent = [];
-        // var seekErrorMean = 0;
-        // var seek = function (milliseconds) {
-        //     console.log('seeking to ', milliseconds)
-        //     return function () {
-
-        //         console.log(video_element.currentTime)
-        //         video_element.currentTime = milliseconds / 1000;
-        //         return Promise.resolve()
-        //     };
-        // };
-
-        //////////////////////////////////////////////////////////////////////////
         // Socket                                                               //
         //////////////////////////////////////////////////////////////////////////
 
@@ -216,10 +114,10 @@
             }
             #chat-heading{
                 text-align: center;
-                padding: 10px 0;
-                font-family: Baskerville Old Face;
+                padding: 9px 0;
+                font-family: Serif;
                 color: bisque;
-                font-size: 25px;
+                font-size: 30px;
                 margin:1px;
             }
             #chat-header{
@@ -250,7 +148,7 @@
                 cursor: auto;
                 user-select: text;
                 -webkit-user-select: text;
-                z-index: 9999999999;
+                z-index: 999999999;
                 padding: ${chatSidebarPadding}px;
                 background-color: #112;
                 border-radius: 0px;
@@ -368,7 +266,7 @@
             </style>
             <div id="all">
             <div id="chat-header">
-                <h2 id="chat-heading">Global Chat</h2>
+                <h2 id="chat-heading">Connectify</h2>
             </div>  
             <div id="chat-container">
                 <div id="chat-history-container">
